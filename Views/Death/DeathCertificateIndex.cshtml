@@ -1,0 +1,50 @@
+﻿@model EGovProject.Models.ViewModel.DeathModel
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<html>
+<head>
+    <style>
+        div .main {
+            font-weight: 400;
+            font-family: 'Montserrat';
+            background-image: url("/images/edu.jpeg");
+            background-repeat: no-repeat;
+        }
+    </style>
+     Main css
+    <link rel="stylesheet" href="">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+
+            <div class="container">
+                <a href="~/home/index" class="close" title="Close Modal">&times;</a>
+                <div class="result-content">
+
+                    <form method="post" asp-action="DeathCertificate" class="signup-form">
+                        <h2 class="form-title">Death Certificate Search Box</h2>
+                        <div class="input-group md-form from-sm form-2 pl-0">
+                            <input name="deathId" class="form-control my-0 py-1 red-border " type="search" placeholder=" Enter Death ID No." aria-label="Search" value="" />
+                            <input type="submit" value="Search" class="btn btn-primary" />
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+</body>
+</html>
+

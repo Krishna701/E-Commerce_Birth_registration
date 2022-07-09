@@ -1,0 +1,152 @@
+﻿@model EGovProject.Models.ViewModel.DeathModel
+@{
+    Layout = "";
+}
+
+
+  
+<head>
+
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+            table th {
+                background-color: #F7F7F7;
+                color: #333;
+                font-weight: bold;
+            }
+
+            table th, table td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+    </style>
+</head>
+
+
+@*<br />
+        <input type="button" id="btnExport" value="Export" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+        <script type="text/javascript">
+            $("body").on("click", "#btnExport", function () {
+                html2canvas($('#det')[0], {
+                    onrendered: function (canvas) {
+                        var data = canvas.toDataURL();
+                        var docDefinition = {
+                            content: [{
+                                image: data,
+                                width: 300
+                            }]
+                        };
+                        pdfMake.createPdf(docDefinition).download("DeathCertificate.pdf");
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>*@
+
+
+<body>
+    <header>
+        <div class="container">
+            <div class="bg-logo">
+                <img src="images/logo.png">
+            </div>
+            <div class="row">
+                <div class="page-logo col-md-1">
+                    <img src="images/logo.png">
+                </div>
+                <div class="local-address col-md-10">
+                    <h3>
+                        @Model.DVDC<b> महा / उपमहा / नगरपालिका / गाउँपालिका</b><br>
+                    </h3>
+                    <h4>
+                        @Model.DWard<b> नं वडा कार्यालय</b><br>
+                        @Model.DDistrict<br>
+                    </h4>
+                    <h5>
+                        <b>नं प्रदेश, नेपाल </b>
+                    </h5>
+                </div>
+            </div>
+            <div class="row letter-head">
+                <div class="letter-number col-md-6">
+                    <p>
+                        <b>दर्ता नं : @Model.RegistrationNumber</b>
+                    </p>
+                </div>
+                <div class="date col-md-6">
+                    <p><b>मिति :</b>@Model.RegistrationDateEnglish</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="subject-line">
+                <p><b>( मृत्यु दर्ता प्रमाणपत्र )</u></b></p>
+            </div>
+            <div class="letter-body">
+                <form id="form1">
+                    <div class="divTable">
+                        <div class="headRow">
+                            <div class="divCell">मृतकको पूरा नाम : @Model.FNameNepali </div>
+                            <div class="divCell">Deceased Full Name (In English) :@Model.FNameEnglish </div>
+                            <div class="divCell">मृतकको परिचयपत्र नं. (नागरिकता/राहदानी) :@Model.DCtznNo </div>
+                            <div class="divCell">ID of Deceased (Citizenship/Passport) : </div>
+                            <div class="divCell">मृत्यु भएको मिति :@Model.DeathDate </div>
+                            <div class="divCell">Date of Death (AD) :@Model.DeathDate  </div>
+                            <div class="divCell">मृत्यु भएको स्थान :@Model.DeathPlace </div>
+                            <div class="divCell">Place of Death :@Model.DeathPlace </div>
+                            <div class="divCell">स्थायी ठेगाना : @Model.DVDC - @Model.DWard, @Model.DDistrict, @Model.DProvince   </div>
+                            <div class="divCell">Permanent Address :@Model.DVDC - @Model.DWard, @Model.DDistrict, @Model.DProvince </div>
+                            <div class="divCell">बाजेको पूरा नाम :@Model.GFFNepali @Model.GFMNepali @Model.GFLNepali</div>
+                            <div class="divCell">Full Name of Grandfather : @Model.GFFEnglish @Model.GFMEnglish @Model.GFLEnglish</div>
+                            <div class="divCell">बाबुको पूरा नाम :@Model.FatherFNepali @Model.FatherMNepali @Model.FatherLNepali     </div>
+                            <div class="divCell">Full Name of Father : @Model.FatherFEnglish @Model.FatherMEnglish @Model.FatherLEnglish</div>
+                            <div class="divCell">आमाको पूरा नाम : @Model.MotherFNepali @Model.MotherMNepali @Model.MotherLNepali</div>
+                            <div class="divCell">Full Name of Mother : @Model.MotherFEnglish @Model.MotherMEnglish @Model.MotherLEnglish</div>
+                            <div class="divCell">पति/पत्नीको पूरा नाम :@Model. @Model @Model. </div>
+                            <div class="divCell">Full Name of Husband/Wife : @Model. @Model @Model.</div>
+                            <div class="divCell">सुचकको पूरा नाम : @Model.ApplicantFNepali @Model.ApplicantMNepali @Model.ApplicantLNepali</div>
+                            <div class="divCell">Informant's Full Name : @Model.ApplicantFEnglish @Model.ApplicantMEnglish @Model.ApplicantLEnglish </div>
+                            <div class="divCell">सुचकको परिचयपत्र नं. (नागरिकता/राहदानी) : @Model.Applicantctznum  </div>
+                            <div class="divCell">Informant's ID (Citizenship/Passport) :  @Model.Applicantctznum </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="approval-sign">
+                    <p>..................................</p>
+                    <p><b>वडा अध्यक्ष </b></p>
+                    <p>-</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container footer-container">
+            <div class="row">
+
+                <div class="footer-content">
+                    <p>@Model.DDistrict, नेपाल, फोन नं.: +977- 9876543210, +977- 012345678 फ्याक्स : +977-012345679 </p>
+                    <p> ईमेल : example@email.com, वेबसाइट : Deathandbirthregistration.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<EGovProject.Models.ViewModel.PollModel>
+@{
+    int counter = 1;
+
+}
+
+@foreach (var item in Model)
+{
+
+    @Html.DisplayFor(modelItem => item.Choose)
+    counter++;
+
+
+ 
+<script>
+    int yesCounter = 0;
+    int noCounter = 0;
+
+    if ("@Html.DisplayFor(modelItem => item.Choose)"== "Yes") {
+
+        yesCounter++;
+        document.write(yesCounter);
+    }
+
+    else {
+        noCounter++;
+        document.write(noCounter);
+    }
+
+</script>
+
+
+           }
+
+@counter
+<script>
+    document.write(yesCounter);
+    document.write(noCounter);
+    document.write(eval("yesCounter+noCounter"));
+</script>
